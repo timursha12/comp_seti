@@ -1,0 +1,33 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: black;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+h2:first-child {
+    margin-top: 0;
+}
+
+p {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.lh-100 {
+    line-height: 100%;
+}
+
+.lh-150 {
+    line-height: 150%;
+}
+
+.lh-200 {
+    line-height: 200%;
+}

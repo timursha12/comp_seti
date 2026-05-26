@@ -1,0 +1,32 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: black;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.ls_1px {
+    letter-spacing: -1px;
+}
+
+.ls1px {
+    letter-spacing: 1px;
+}
+
+.ws_1px {
+    word-spacing: -1px;
+}
+
+.ws1px {
+    word-spacing: 1px;
+}
