@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1: Приветствие пользователя</title>
+</head>
+<body>
+    <input type="text" id="userName" placeholder="Введите ваше имя">
+    <button id="helloBtn">Сказать привет</button>
+    <p id="resultText"></p>
+    <script>
+        let inputName = document.querySelector("#userName");
+        let btn = document.querySelector("#helloBtn");
+        let result = document.querySelector("#resultText");
+        btn.onclick = function() {
+            let name = inputName.value;
+            if (name === "") {
+                result.textContent = "Вы не ввели имя";
+            } else {
+                result.textContent = "Привет, " + name + "! Добро пожаловать на сайт";
+            }
+        };
+    </script>
+</body>
+</html>

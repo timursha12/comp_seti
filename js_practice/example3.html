@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Задание В</title>
+</head>
+<body>
+    <button id="clickBtn">Нажми меня</button>
+    <p id="targetParagraph">Это обычный абзац. Кликни по кнопке.</p>
+    <script>
+        let btn = document.querySelector("#clickBtn");
+        let paragraph = document.querySelector("#targetParagraph");
+        btn.onclick = function() {
+            paragraph.textContent = "Клик сработал!";
+            paragraph.style.color = "blue";
+        };
+    </script>
+</body>
+</html>

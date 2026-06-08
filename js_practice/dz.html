@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>дз: Счётчик</title>
+    <style>
+        #counterValue {
+            font-size: 32px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <p id="counterValue">0</p>
+    <button id="btnMinus">-1</button>
+    <button id="btnPlus">+1</button>
+    <script>
+        let counterDisplay = document.querySelector("#counterValue");
+        let btnPlus = document.querySelector("#btnPlus");
+        let btnMinus = document.querySelector("#btnMinus");
+        let count = 0;
+        function updateCounter() {
+            counterDisplay.textContent = count;
+            if (count > 10) {
+                counterDisplay.style.color = "red";
+            } else if (count < 0) {
+                counterDisplay.style.color = "blue";
+            } else {
+                counterDisplay.style.color = "black";
+            }
+        }
+        btnPlus.onclick = function() {
+            count = count + 1;
+            updateCounter();
+        };
+        btnMinus.onclick = function() {
+            count = count - 1;
+            updateCounter();
+        };
+    </script>
+</body>
+</html>
