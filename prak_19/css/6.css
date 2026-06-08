@@ -1,0 +1,20 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    max-width: 600px; 
+}
+.box {
+    border: 2px solid red;
+}
+.box + .box {
+    margin-top: -2px;
+}
+.box-none {
+    padding-top: 0;
+}
+.box-cm {
+    padding-top: 2cm;
+}
+.box-percent {
+    padding-top: 50%;
+}

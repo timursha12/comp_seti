@@ -1,0 +1,16 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+.box {
+    border: 2px solid red;
+}
+.box + .box {
+    margin-top: -2px;
+}
+.box-cm {
+    padding-right: 2cm;
+}
+.box-percent {
+    padding-right: 50%;
+}

@@ -1,0 +1,27 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    max-width: 800px;
+}
+.box {
+    border-width: 25px;
+    padding: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.box-one {
+    border-style: outset;
+    border-color: blue;
+}
+.box-two {
+    border-style: inset;
+    border-color: red blue;
+}
+.box-three {
+    border-style: groove;
+    border-color: red lime blue;
+}
+.box-four {
+    border-style: ridge;
+    border-color: red lime blue fuchsia;
+}

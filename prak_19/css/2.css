@@ -1,0 +1,19 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+.card {
+    margin: 30px;
+}
+.card-title {
+    background-color: #558b8b;
+    color: white;
+    margin: 0;
+    padding: 25px 30px;
+}
+.card-text {
+    background-color: #d9e2d9;
+    color: black;
+    margin: 0;
+    padding: 20px 30px 40px 30px;
+}
