@@ -1,0 +1,32 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: black;
+}
+
+.t3-first {
+    border-collapse: separate;
+    border-spacing: 2px;
+    background-color: green;
+    border: 4px solid black;
+}
+
+.t3-first th, .t3-first td {
+    background-color: yellow;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.t3-second {
+    border-collapse: separate;
+    border-spacing: 6px;
+    background-color: green;
+    border: 4px solid black;
+}
+
+.t3-second th, .t3-second td {
+    background-color: yellow;
+    border: 1px solid black;
+    padding: 10px 15px;
+    text-align: left;
+}

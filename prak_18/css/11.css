@@ -1,0 +1,27 @@
+body {
+    font-family: "Lucida Sans Unicode", sans-serif;
+    font-size: 16px;
+}
+
+table {
+    width: 70%;
+    border-collapse: collapse;
+}
+
+th {
+    color: #039;
+    border-bottom: 1px solid #6678b1;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+td {
+    color: #669;
+    border-bottom: 1px solid #6678b1;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+tr:hover td {
+    color: #6699ff;
+}	

@@ -1,0 +1,30 @@
+body {
+    font-family: "Lucida Sans Unicode", sans-serif;
+    font-size: 16px;
+}
+table {
+    width: 70%;
+    border-collapse: collapse;
+}
+th {
+    color: #fff;
+    background-color: #2a58ea;
+    padding: 12px 15px;
+    text-align: left;
+}
+td {
+    color: #669;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid #0be052;
+}
+tr:nth-child(even) {
+    background-color: #e8edff;
+}
+
+tr:nth-child(odd) {
+    background-color: #b9c6d7;
+}
+tr:hover td {
+    color: #ea2a36;
+}

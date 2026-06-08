@@ -1,0 +1,20 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: black;
+}
+
+table {
+    margin-bottom: 20px;
+}
+th, td {
+    border: 1px solid silver;
+    padding: 3px 6px;
+    text-align: left;
+}
+.t-collapse {
+    border-collapse: collapse;
+}
+.t-separate {
+    border-collapse: separate;
+}

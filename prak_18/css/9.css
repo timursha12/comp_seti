@@ -1,0 +1,21 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: black;
+}
+table {
+    border-collapse: collapse;
+    background-color: #fffacd;
+}
+th, td {
+    padding: 6px 20px;
+    text-align: center;
+}
+.bg-maroon {
+    background-color: maroon;
+    color: white;
+}
+.bg-white {
+    background-color: white;
+    text-align: left;
+}
