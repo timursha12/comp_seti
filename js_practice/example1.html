@@ -22,17 +22,14 @@
     <button id="changeTextBtn">Изменить текст</button>
     <button id="changeColorBtn">Сменить цвет</button>
     <script>
-        // Находим нужные элементы
         let title = document.querySelector("#mainTitle");
         let box = document.querySelector("#colorBox");
         let textBtn = document.querySelector("#changeTextBtn");
         let colorBtn = document.querySelector("#changeColorBtn");
-        // Кнопка "Изменить текст"
         textBtn.onclick = function() {
             title.textContent = "Текст изменён через JavaScript!";
             box.textContent = "Спасибо, что нажали";
         };
-        // Кнопка "Сменить цвет"
         colorBtn.onclick = function() {
             box.style.backgroundColor = "orange";
             box.style.border = "2px solid black";
