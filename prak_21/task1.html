@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Проверка числа</title>
+</head>
+<body>
+    <input type="number" id="numInput">
+    <button id="checkBtn">Проверить</button>
+    <p id="result"></p>
+    <script>
+        let btn = document.querySelector("#checkBtn");
+        let input = document.querySelector("#numInput");
+        let out = document.querySelector("#result");
+        btn.onclick = function() {
+            let val = input.value;
+            if (val === "") {
+                out.textContent = "Введите число";
+                out.style.color = "red";
+            } else {
+                let num = Number(val);
+                if (num % 2 === 0) {
+                    out.textContent = "Чётное";
+                    out.style.color = "green";
+                } else {
+                    out.textContent = "Нечётное";
+                    out.style.color = "blue";
+                }
+            }
+        };
+    </script>
+</body>
+</html>

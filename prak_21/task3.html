@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Проверка телефона</title>
+</head>
+<body>
+    <input type="tel" id="phone">
+    <button id="checkPhoneBtn">Проверить номер</button>
+    <p id="phoneOut"></p>
+    <script>
+        let inp = document.querySelector("#phone");
+        let btn = document.querySelector("#checkPhoneBtn");
+        let out = document.querySelector("#phoneOut");
+        btn.onclick = function() {
+            let val = inp.value;
+            
+            if (val === "") {
+                out.textContent = "Ошибка: номер пустой";
+                out.style.color = "red";
+                return;
+            }
+            let clean = val;
+            let hasPlus = false;
+            
+            if (clean[0] === "+") {
+                hasPlus = true;
+                clean = clean.slice(1);
+            }
+            let isDigits = true;
+            for (let i = 0; i < clean.length; i++) {
+                if (clean[i] < "0" || clean[i] > "9") {
+                    isDigits = false;
+                }
+            }
+            if (!isDigits) {
+                out.textContent = "Ошибка: номер должен содержать только цифры и плюс в начале";
+                out.style.color = "red";
+                return;
+            }
+            let isValid = false;
+            if (hasPlus && val[1] === "7" && val.length === 12) {
+                isValid = true;
+            } else if (!hasPlus && val[0] === "8" && val.length === 11) {
+                isValid = true;
+            } else if (!hasPlus && val.length === 10) {
+                isValid = true;
+            }
+            if (isValid) {
+                out.textContent = "Номер телефона верный";
+                out.style.color = "green";
+            } else {
+                out.textContent = "Ошибка: неверный формат номера";
+                out.style.color = "red";
+            }
+        };
+    </script>
+</body>
+</html>

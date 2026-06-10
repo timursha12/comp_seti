@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ИМТ</title>
+    <style>
+        #resultBox {
+            padding: 15px;
+            margin-top: 15px;
+            display: none;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" id="hInp">
+    <input type="number" id="wInp">
+    <button id="calcBmi">Рассчитать ИМТ</button>
+    <p id="errorOut" style="color: red;"></p>
+    
+    <div id="resultBox">
+        <p id="bmiVal"></p>
+        <p id="bmiComment"></p>
+        <p id="bmiRec"></p>
+    </div>
+    <script>
+        let hI = document.querySelector("#hInp");
+        let wI = document.querySelector("#wInp");
+        let btn = document.querySelector("#calcBmi");
+        let box = document.querySelector("#resultBox");
+        let vOut = document.querySelector("#bmiVal");
+        let cOut = document.querySelector("#bmiComment");
+        let rOut = document.querySelector("#bmiRec");
+        let err = document.querySelector("#errorOut");
+        btn.onclick = function() {
+            box.style.display = "none";
+            err.textContent = "";
+            let hVal = hI.value;
+            let wVal = wI.value;
+            if (hVal === "" || wVal === "") {
+                err.textContent = "Ошибка: заполните поля";
+                return;
+            }
+            let h = Number(hVal);
+            let w = Number(wVal);
+            if (h < 50 || h > 250 || w < 10 || w > 300) {
+                err.textContent = "Ошибка: некорректные значения";
+                return;
+            }
+            let hm = h / 100;
+            let imt = w / (hm * hm);
+            let imtRounded = imt.toFixed(2);
+            let comment = "";
+            let rec = "";
+            let color = "";
+            let bgColor = "";
+            if (imt < 16) {
+                comment = "Выраженный дефицит массы тела";
+                color = "red";
+                bgColor = "#ffe6e6";
+                rec = "Рекомендуется сбалансированное питание с повышенной калорийностью";
+            } else if (imt < 18.5) {
+                comment = "Недостаточная масса тела";
+                color = "orange";
+                bgColor = "#fff3e6";
+                rec = "Рекомендуется сбалансированное питание с повышенной калорийностью";
+            } else if (imt < 25) {
+                comment = "Нормальная масса тела";
+                color = "green";
+                bgColor = "#e6ffe6";
+                rec = "Отличный результат! Поддерживайте здоровый образ жизни";
+            } else if (imt < 30) {
+                comment = "Избыточная масса тела (предожирение)";
+                color = "orange";
+                bgColor = "#fff3e6";
+                rec = "Рекомендуется увеличить физическую активность и скорректировать питание";
+            } else if (imt < 35) {
+                comment = "Ожирение I степени";
+                color = "red";
+                bgColor = "#ffe6e6";
+                rec = "Рекомендуется консультация врача-диетолога";
+            } else if (imt < 40) {
+                comment = "Ожирение II степени";
+                color = "red";
+                bgColor = "#ffcccc";
+                rec = "Рекомендуется консультация врача-диетолога";
+            } else {
+                comment = "Ожирение III степени";
+                color = "darkred";
+                bgColor = "#ff9999";
+                rec = "Рекомендуется консультация врача-диетолога";
+            }
+            vOut.textContent = "ИМТ: " + imtRounded;
+            cOut.textContent = "Комментарий: " + comment;
+            cOut.style.color = color;
+            rOut.textContent = "Рекомендация: " + rec;
+            box.style.backgroundColor = bgColor;
+            box.style.display = "block";
+        };
+    </script>
+</body>
+</html>

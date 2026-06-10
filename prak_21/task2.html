@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор скидки</title>
+</head>
+<body>
+    <input type="number" id="price">
+    <input type="number" id="age">
+    <button id="calcBtn">Рассчитать</button>
+    <p id="totalPrice"></p>
+    <script>
+        let priceInp = document.querySelector("#price");
+        let ageInp = document.querySelector("#age");
+        let btn = document.querySelector("#calcBtn");
+        let out = document.querySelector("#totalPrice");
+        function getDiscount(age) {
+            if (age < 18) {
+                return 10;
+            } else if (age >= 60) {
+                return 20;
+            } else {
+                return 0;
+            }
+        }
+        btn.onclick = function() {
+            let pVal = priceInp.value;
+            let aVal = ageInp.value;
+            if (pVal === "" || aVal === "") {
+                out.textContent = "Ошибка: введите цену и возраст";
+                out.style.color = "red";
+            } else {
+                let price = Number(pVal);
+                let age = Number(aVal);
+                let discount = getDiscount(age);
+                let finalPrice = price - (price * discount / 100);
+                out.textContent = "Итоговая цена: " + finalPrice + " рублей";
+                out.style.color = "black";
+            }
+        };
+    </script>
+</body>
+</html>

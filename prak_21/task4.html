@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Чаевые</title>
+</head>
+<body>
+    <input type="number" id="bill">
+    <input type="number" id="tip" min="0" max="50">
+    <input type="number" id="people" value="1" min="1">
+    <button id="calcTipBtn">Рассчитать</button>
+    <p id="tipAmount"></p>
+    <p id="totalAmount"></p>
+    <p id="perPerson"></p>
+
+    <script>
+        let bInp = document.querySelector("#bill");
+        let tInp = document.querySelector("#tip");
+        let pInp = document.querySelector("#people");
+        let btn = document.querySelector("#calcTipBtn");
+        let out1 = document.querySelector("#tipAmount");
+        let out2 = document.querySelector("#totalAmount");
+        let out3 = document.querySelector("#perPerson");
+
+        btn.onclick = function() {
+            out1.textContent = "";
+            out2.textContent = "";
+            out3.textContent = "";
+            let bVal = bInp.value;
+            let tVal = tInp.value;
+            let pVal = pInp.value;
+            if (bVal === "" || tVal === "" || pVal === "") {
+                out1.textContent = "Ошибка: заполните все поля";
+                out1.style.color = "red";
+                return;
+            }
+            let bill = Number(bVal);
+            let tip = Number(tVal);
+            let people = Number(pVal);
+            if (bill < 0) {
+                out1.textContent = "Ошибка: сумма счета не может быть меньше 0";
+                out1.style.color = "red";
+                return;
+            }
+            if (tip < 0 || tip > 50) {
+                out1.textContent = "Ошибка: процент чаевых от 0 до 50";
+                out1.style.color = "red";
+                return;
+            }
+            if (people < 1) {
+                out1.textContent = "Ошибка: количество человек минимум 1";
+                out1.style.color = "red";
+                return;
+            }
+            let tipSum = bill * (tip / 100);
+            let totalSum = bill + tipSum;
+            let perPersonSum = totalSum / people;
+            out1.style.color = "black";
+            out1.textContent = "Сумма чаевых: " + tipSum.toFixed(2) + " рублей";
+            out2.textContent = "Общая сумма: " + totalSum.toFixed(2) + " рублей";
+            out3.textContent = "Каждый должен заплатить по " + perPersonSum.toFixed(2) + " рублей (" + people + " человек)";
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Угадай число</title>
+</head>
+<body>
+    <input type="number" id="guessInp">
+    <button id="guessBtn">Угадать</button>
+    <p id="guessOut"></p>
+    <script>
+        let secret = Math.floor(Math.random() * 10) + 1;
+        let inp = document.querySelector("#guessInp");
+        let btn = document.querySelector("#guessBtn");
+        let out = document.querySelector("#guessOut");
+        btn.onclick = function() {
+            let val = inp.value;
+            if (val === "") {
+                out.textContent = "Введите число!";
+                out.style.color = "red";
+                return;
+            }
+            let num = Number(val);
+            if (num === secret) {
+                out.textContent = "Угадал!";
+                out.style.color = "green";
+                secret = Math.floor(Math.random() * 10) + 1;
+            } else if (num > secret) {
+                out.textContent = "Меньше";
+                out.style.color = "blue";
+            } else {
+                out.textContent = "Больше";
+                out.style.color = "blue";
+            }
+        };
+    </script>
+</body>
+</html>
