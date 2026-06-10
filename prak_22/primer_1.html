@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Пример А - Перебор массива</title>
+</head>
+<body>
+    <h2>Откройте консоль (F12)</h2>
+    <button id="showBtn">Показать студентов</button>
+
+    <script>
+        let студенты = ["Анна", "Петр", "Иван", "Мария", "Ольга", "Дмитрий"];
+        let button = document.querySelector("#showBtn");
+        
+        button.onclick = function() {
+            console.log("Список студентов:");
+            for (let i = 0; i < студенты.length; i++) {
+                console.log((i + 1) + ". " + студенты[i]);
+            }
+        };
+    </script>
+</body>
+</html>

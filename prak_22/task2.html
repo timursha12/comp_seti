@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск города</title>
+</head>
+<body>
+    <input type="text" id="cityInput" placeholder="Введите город">
+    <button id="searchBtn">Найти</button>
+    <p id="result"></p>
+
+    <script>
+        let cities = ["Москва", "Санкт-Петербург", "Казань", "Новосибирск", "Екатеринбург"];
+        let input = document.querySelector("#cityInput");
+        let btn = document.querySelector("#searchBtn");
+        let out = document.querySelector("#result");
+
+        btn.onclick = function() {
+            let val = input.value;
+            
+            if (val === "") {
+                out.textContent = "Введите название города";
+                out.style.color = "black";
+                return;
+            }
+            
+            let searchCity = val.toLowerCase();
+            let cityFound = false;
+            
+            for (let i = 0; i < cities.length; i++) {
+                if (cities[i].toLowerCase() === searchCity) {
+                    cityFound = true;
+                    break;
+                }
+            }
+            
+            if (cityFound) {
+                out.textContent = "Город найден";
+                out.style.color = "green";
+            } else {
+                out.textContent = "Город не найден";
+                out.style.color = "red";
+            }
+        };
+    </script>
+</body>
+</html>

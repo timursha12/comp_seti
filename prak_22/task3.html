@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Счетчик</title>
+</head>
+<body>
+    <button id="calcBtn">Подсчитать</button>
+    <p id="out1"></p>
+    <p id="out2"></p>
+    <p id="out3"></p>
+    <p id="out4"></p>
+    <script>
+        let arr = [5, 12, 8, 130, 44, 3, 7, 21];
+        let btn = document.querySelector("#calcBtn");
+        let out1 = document.querySelector("#out1");
+        let out2 = document.querySelector("#out2");
+        let out3 = document.querySelector("#out3");
+        let out4 = document.querySelector("#out4");
+        btn.onclick = function() {
+            let more = 0;
+            let less = 0;
+            let equal = 0;
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum = sum + arr[i];
+                if (arr[i] > 10) {
+                    more++;
+                } else if (arr[i] < 10) {
+                    less++;
+                } else {
+                    equal++;
+                }
+            }
+            out1.textContent = "Чисел больше 10: " + more;
+            out2.textContent = "Чисел меньше 10: " + less;
+            out3.textContent = "Чисел равных 10: " + equal;
+            out4.textContent = "Сумма всех элементов: " + sum;
+        };
+    </script>
+</body>
+</html>

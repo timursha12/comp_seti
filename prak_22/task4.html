@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do список</title>
+    <style>
+        body { font-family: Arial; }
+        .done { text-decoration: line-through; color: gray; }
+        li { margin: 10px 0; font-size: 18px; }
+        span { cursor: pointer; }
+        button { margin-left: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <input type="text" id="taskInput" placeholder="Новое дело...">
+    <button id="addTaskBtn">➕ Добавить</button>
+    <button id="clearAllBtn">🗑️ Очистить все</button>
+    <p id="counter">Всего дел: 0</p>
+    <p id="errorMsg" style="color: red;"></p>
+    <ul id="taskList"></ul>
+    <script>
+        let input = document.querySelector("#taskInput");
+        let addBtn = document.querySelector("#addTaskBtn");
+        let clearAllBtn = document.querySelector("#clearAllBtn");
+        let counterSpan = document.querySelector("#counter");
+        let taskList = document.querySelector("#taskList");
+        let errorMsg = document.querySelector("#errorMsg");
+        let taskCount = 0;
+        function updateCounter() {
+            counterSpan.textContent = "Всего дел: " + taskCount;
+        }
+        addBtn.onclick = function() {
+            errorMsg.textContent = "";
+            let text = input.value;
+            
+            if (text === "") {
+                errorMsg.textContent = "Ошибка: введите текст дела";
+                return;
+            }
+            let li = document.createElement("li");
+            let span = document.createElement("span");
+            span.textContent = text;
+            span.onclick = function() {
+                if (span.className === "done") {
+                    span.className = "";
+                } else {
+                    span.className = "done";
+                }
+            };
+            let editBtn = document.createElement("button");
+            editBtn.textContent = "✏️ Изменить";
+            editBtn.onclick = function() {
+                let newText = prompt("Изменить дело:", span.textContent);
+                if (newText !== null && newText !== "") {
+                    span.textContent = newText;
+                }
+            };
+            let delBtn = document.createElement("button");
+            delBtn.textContent = "✖ Удалить";
+            delBtn.onclick = function() {
+                li.remove();
+                taskCount--;
+                updateCounter();
+            };
+
+            li.appendChild(span);
+            li.appendChild(editBtn);
+            li.appendChild(delBtn);
+            taskList.appendChild(li);
+            input.value = "";
+            taskCount++;
+            updateCounter();
+        };
+        clearAllBtn.onclick = function() {
+            taskList.innerHTML = "";
+            taskCount = 0;
+            updateCounter();
+        };
+    </script>
+</body>
+</html>

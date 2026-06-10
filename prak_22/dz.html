@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Слайдер</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        img {
+            width: 500px;
+            height: 300px;
+            object-fit: cover;
+            border: 2px solid black;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Галерея фруктов(слайдер)</h2>
+    
+    <div>
+        <img id="sliderImg" src="img/1.jpg" alt="Слайд">
+    </div>
+    
+    <button id="prevBtn">◀ Назад</button>
+    <button id="nextBtn">Вперёд ▶</button>
+
+    <script>
+        let images = [
+            "img/1.jpg",
+            "img/2.jpg",
+            "img/3.jpg",
+            "img/4.jpg",
+            "img/5.jpg"
+        ];
+        
+        let currentIndex = 0;
+        
+        let img = document.querySelector("#sliderImg");
+        let nextBtn = document.querySelector("#nextBtn");
+        let prevBtn = document.querySelector("#prevBtn");
+
+        function showImage() {
+            img.src = images[currentIndex];
+        }
+
+        nextBtn.onclick = function() {
+            currentIndex++;
+            if (currentIndex >= images.length) {
+                currentIndex = 0;
+            }
+            showImage();
+        };
+
+        prevBtn.onclick = function() {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = images.length - 1;
+            }
+            showImage();
+        };
+    </script>
+</body>
+</html>

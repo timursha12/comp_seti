@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Книги</title>
+</head>
+<body>
+    <ol id="bookList"></ol>
+    <script>
+        let books = ["Гарри Поттер", "Властелин колец", "Дюна", "1984", "Мастер и Маргарита"];
+        let list = document.querySelector("#bookList");
+
+        if (books.length === 0) {
+            list.textContent = "Список пуст";
+        } else {
+            for (let i = 0; i < books.length; i++) {
+                list.innerHTML = list.innerHTML + "<li>" + books[i] + "</li>";
+            }
+        }
+    </script>
+</body>
+</html>

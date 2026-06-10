@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Таблица умножения</title>
+    <style>
+        td { padding: 5px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div id="tableContainer"></div>
+    <script>
+        let html = "";
+        for (let i = 1; i <= 10; i++) {
+            html = html + "<tr>";
+            for (let j = 1; j <= 10; j++) {
+                html = html + "<td>" + i + "×" + j + "=" + (i * j) + "</td>";
+           }
+            html = html + "</tr>";
+        }
+        document.querySelector("#tableContainer").innerHTML = "<table border='1'>" + html + "</table>";
+    </script>
+</body>
+</html>

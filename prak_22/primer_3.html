@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Пример В - Добавление и удаление</title>
+    <style>
+        .note {
+            background-color: lightyellow;
+            border: 1px solid orange;
+            padding: 10px;
+            margin: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .remove {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>📌 Заметки</h2>
+    <button id="newNoteBtn">➕ Создать заметку</button>
+    <div id="notesContainer"></div>
+    <script>
+        let container = document.querySelector("#notesContainer");
+        let createBtn = document.querySelector("#newNoteBtn");
+        let noteCounter = 1;
+        createBtn.onclick = function() {
+            let noteDiv = document.createElement("div");
+            noteDiv.className = "note";
+            
+            let noteText = document.createElement("span");
+            noteText.textContent = "Заметка #" + noteCounter + ": Нажмите для редактирования";
+            let removeBtn = document.createElement("button");
+            removeBtn.textContent = "Удалить";
+            removeBtn.className = "remove";
+            noteText.onclick = function() {
+                let newText = prompt("Введите новый текст заметки:", noteText.textContent);
+                if (newText !== null && newText !== "") {
+                    noteText.textContent = newText;
+                }
+            };
+            removeBtn.onclick = function() {
+                noteDiv.remove();
+            };
+            noteDiv.appendChild(noteText);
+            noteDiv.appendChild(removeBtn);
+            container.appendChild(noteDiv);
+            noteCounter++;
+        };
+    </script>
+</body>
+</html>

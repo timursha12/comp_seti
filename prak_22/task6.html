@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор имен</title>
+</head>
+<body>
+    <button id="genOneBtn">Случайное имя</button>
+    <button id="genTenBtn">Сгенерировать 10 имён</button>
+    <p>Сгенерировано: <span id="count">0</span></p>
+    <ul id="nameList"></ul>
+    <script>
+        let names = ["Анна", "Петр", "Иван", "Мария", "Ольга", "Дмитрий", "Елена", "Сергей", "Татьяна", "Алексей"];
+        let surnames = ["Иванова", "Петров", "Сидоров", "Кузнецова", "Смирнов", "Волкова", "Морозов", "Новикова", "Федоров", "Соколова"];
+        let patronymics = ["Ивановна", "Иванович", "Петровна", "Петрович", "Сергеевна", "Сергеевич", "Алексеевна", "Алексеевич", "Дмитриевна", "Дмитриевич"];
+        let genOne = document.querySelector("#genOneBtn");
+        let genTen = document.querySelector("#genTenBtn");
+        let list = document.querySelector("#nameList");
+        let countSpan = document.querySelector("#count");
+        let total = 0;
+        function getRandomElement(arr) {
+            let randomIndex = Math.floor(Math.random() * arr.length);
+            return arr[randomIndex];
+        }
+        function generate() {
+            let n = getRandomElement(names);
+            let s = getRandomElement(surnames);
+            let p = getRandomElement(patronymics);
+            let li = document.createElement("li");
+            li.textContent = s + " " + n + " " + p;
+            list.appendChild(li);
+            total++;
+            countSpan.textContent = total;
+        }
+        genOne.onclick = function() {
+            generate();
+        };
+        genTen.onclick = function() {
+            for (let i = 0; i < 10; i++) {
+                generate();
+            }
+        };
+    </script>
+</body>
+</html>
